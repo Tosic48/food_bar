@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from main.models import Сakes
 
 def index(request):
+    cakes = Cakes.object.all()
     return render(request, 'main/index.html')
 
 def about(request):
@@ -9,20 +11,5 @@ def about(request):
 def contact(request):
     return render(request, 'main/contact.html')
 
-def blog(request):
-    return render(request, 'main/blog.html')
-
-def book_table(request):
-    return render(request, 'main/book-table.html')
-
-def elements(request):
-    return render(request, 'main/elements.html')
-
-def gallery(request):
-    return render(request, 'main/gallery.html')
-
 def menu(request):
     return render(request, 'main/menu.html')
-
-def single_blog(request):
-    return render(request, 'main/single-blog.html')
