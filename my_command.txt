@@ -517,4 +517,4 @@ git status
 python manage.py migrate
 sudo apt update
 sudo apt install sqlitebrowser
-
+6 видео 11:17
