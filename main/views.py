@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from main.models import Сakes
+from .models import Cakes
 
 def index(request):
-    # cakes = Cakes.object.all()
-    return render(request, 'main/index.html')
+    cakes = Cakes.objects.all()
+    context = {'cakes': cakes}
+    return render(request, 'main/index.html', context=context)
 
 def about(request):
     return render(request, 'main/about-us.html')
