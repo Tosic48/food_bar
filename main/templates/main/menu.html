@@ -232,13 +232,12 @@
                 {% for cake in cakes %}
 				<div class="single_dish col-lg-4 col-md-6 text-center">
 					<div class="thumb">
-						<img class="img-fluid" src="{{cake.photo}}" alt="">
+						<img class="img-fluid" src="{{cake.photo.url}}" alt="">
 					</div>
 					<h4>{{ cake.title }}</h4>
-					<p>
-                        {{ cake.vegetarion_type}}
-					</p>
-					<h5 class="price">${{ cake.price }}</h5>
+					<p>{{ cake.vegetarion_type}}</p>
+					<p>{{ cake.composition}}</p>
+                    <h5 class="price">${{ cake.price }}</h5>
 				</div>
                 {% endfor %}
 
