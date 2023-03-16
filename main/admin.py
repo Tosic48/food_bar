@@ -1,7 +1,7 @@
 from django.contrib import admin
-from main.models import Cakes
+from main.models import Cake
 
 
-@admin.register(Cakes)
+@admin.register(Cake)
 class PersonAdmin(admin.ModelAdmin):
     pass

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Cakes
+from .models import Cake
 
 def index(request):
     return render(request, 'main/index.html')
@@ -11,6 +11,6 @@ def contact(request):
     return render(request, 'main/contact.html')
 
 def menu(request):
-    cakes = Cakes.objects.all()
+    cakes = Cake.objects.all()
     context = {'cakes': cakes}
     return render(request, 'main/menu.html', context=context)

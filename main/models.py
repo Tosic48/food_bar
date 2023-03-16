@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-class Cakes(models.Model):
+class Cake(models.Model):
     VEGETERIAN_CHOISE = [
         ('vegeterian', 'For Vegeterian'),
         ('non_vegeterian', ' No Vegeterian'),
