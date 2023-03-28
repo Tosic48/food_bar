@@ -16,3 +16,10 @@ class Cakes(models.Model):
     ])
     price = models.PositiveIntegerField()
     photo = models.ImageField(upload_to='')
+
+
+class Review(models.Model):
+    text = models.CharField(max_length=100)
+    details = models.CharField(max_length=100)
+    customers = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to='')
