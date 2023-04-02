@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="../../static/main/img/favicon.png" type="image/png">
-	<title>Food Bar</title>
+	<title>Cakes Bar</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="../../static/main/css/bootstrap.css">
 	<link rel="stylesheet" href="../../static/main/vendors/linericon/style.css">
@@ -377,50 +377,37 @@
 	<!--================Member Area =================-->
 	<section class="testimonials_area section_gap position-relative">
 		<div class="container">
+            <div class="row">
+				<div class="col-lg-12">
+					<div class="main_title position-relative">
+						<h1>customers reviews</h1>
+						<hr>
+						<div class="round-planet planet">
+							<div class="round-planet planet2">
+								<div class="shape shape1"></div>
+								<div class="shape shape2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="testi_slider owl-carousel">
-				<div class="item">
+				{% for rev in review %}
+                <div class="item">
 					<div class="row">
 						<div class="col-lg-4">
-							<img src="{{review_1.photo.url}}" alt="">
+							<img src="{{rev.photo.url}}" alt="">
 						</div>
 						<div class="col-lg-8">
 							<div class="testi_text">
-								<h4>{{review_1.customers}}</h4>
-								<h5>{{review_1.details}}</h5>
-								<p>{{review_1.text}}</p>
+								<h4>{{rev.customers}}</h4>
+								<h5>{{rev.details}}</h5>
+								<p>{{rev.text}}</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="item">
-					<div class="row">
-						<div class="col-lg-4">
-							<img src="{{review_2.photo.url}}" alt="">
-						</div>
-						<div class="col-lg-8">
-							<div class="testi_text">
-								<h4>{{review_2.customers}}</h4>
-								<h5>{{review_2.details}}</h5>
-								<p>{{review_2.text}}</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="row">
-						<div class="col-lg-4">
-							<img src="../../static/main/img/testimonials/testi-3.jpg" alt="">
-						</div>
-						<div class="col-lg-8">
-							<div class="testi_text">
-								<h4>Образование</h4>
-								<h5>Сертификат об окончании куланырных курсов</h5>
-								<p>“Мы все прекрасно знаем, что хороший специалист должен постоянно изучать
-                                    что-то новое и двигать границы своих возможностей дальше.”</p>
-							</div>
-						</div>
-					</div>
-				</div>
+                {% endfor %}
 			</div>
 		</div>
 	</section>
