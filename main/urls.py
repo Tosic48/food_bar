@@ -11,5 +11,7 @@ urlpatterns = [
 
     path('accounts/login/', FBLoginView.as_view(), name='login'),
     path('accounts/logout/', FBLogoutView.as_view(), name='logout'),
+    path('accounts/register/', RegisterUserView.as_view(), name='register'),
+    path('accounts/register/done/', RegisterDoneView.as_view(), name='register_done'),
 
 ]

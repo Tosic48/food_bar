@@ -1,8 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, CreateView
 from django.core.paginator import Paginator
+
+from .forms import RegisterUserForm
 from .models import Cakes, Review
 
 
@@ -45,3 +49,14 @@ class FBLoginView(LoginView):
 
 class FBLogoutView(LoginRequiredMixin, LogoutView):
     template_name = 'main/logout.html'
+
+
+class RegisterUserView(CreateView):
+    model = User
+    template_name = 'main/register_user.html'
+    form_class = RegisterUserForm
+    success_url = reverse_lazy('main:register_done')
+
+
+class RegisterDoneView(TemplateView):
+    template_name = 'main/register_done.html'
