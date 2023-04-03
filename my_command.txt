@@ -47,4 +47,4 @@ python manage.py makemigrations
 python manage.py migrate
 pip freeze > requirements.txt
 
-18^32
+57^11
