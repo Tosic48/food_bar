@@ -10,7 +10,8 @@
 	<title>Menu</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="../../static/main/css/bootstrap.css">
-	<link rel="stylesheet" href="../../static/main/vendors/linericon/style.css">	<link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../static/main/vendors/linericon/style.css">
+    <link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../../static/main/vendors/owl-carousel/owl.carousel.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.min.css">
 	<link rel="stylesheet" href="../../static/main/vendors/nice-select/css/nice-select.css">
@@ -95,7 +96,7 @@
 				</div>
 			</div>
             <div class="row">
-                {% for cake in cakes %}
+                {% for cake in page_obj %}
 				<div class="single_dish col-lg-4 col-md-6 text-center">
 					<div class="thumb">
 						<img class="img-fluid" src="{{cake.photo.url}}" alt="">
@@ -107,6 +108,15 @@
 				</div>
                 {% endfor %}
 			</div>
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+                <span class="current-page">{{ page_obj.number }}</span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                {% endif %}
+            </div>
 		</div>
 	</section>
 	<!--================ End Top Dish Area =================-->
