@@ -47,4 +47,4 @@ python manage.py makemigrations
 python manage.py migrate
 pip freeze > requirements.txt
 
-6 видео 11:17
+18^32
