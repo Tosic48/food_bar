@@ -10,9 +10,10 @@ class PersonAdmin(admin.ModelAdmin):
     readonly_fields = ('preview_photo',)
     list_display = ('pk', 'title', 'composition', 'price', 'vegetarion_type')
     list_display_links = ('title',)
-    list_editable = ('vegetarion_type',)
+    list_editable = ('vegetarion_type', 'price',)
     list_filter = ('vegetarion_type',)
     search_fields = ('composition',)
+
 
     def preview_photo(self, obj):
         return mark_safe(f'<img src="{obj.photo.url}" width="150" />')
