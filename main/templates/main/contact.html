@@ -10,9 +10,11 @@
     <title>Contact Us</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../static/main/css/bootstrap.css">
-    <link rel="stylesheet" href="../../static/main/vendors/linericon/style.css">    <link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/main/vendors/linericon/style.css">
+    <link rel="stylesheet" href="../../static/main/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../static/main/vendors/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="../../static/main/vendors/lightbox/simpleLightbox.css">    <link rel="stylesheet" href="../../static/main/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="../../static/main/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="../../static/main/vendors/nice-select/css/nice-select.css">
     <link rel="stylesheet" href="../../static/main/vendors/animate-css/animate.css">
     <!-- main css -->
     <link rel="stylesheet" href="../../static/main/css/style.css">
@@ -46,14 +48,13 @@
 
                             {% if user.username %}
                                 <li class="nav-item"><a class="nav-link">{{ user.username }}</a></li>
-                                <li {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}><a
-                                       <li class="nav-item"><a class="nav-link" href="{% url 'main:logout' %}" class="nav-link">Logout</a></li>
+                                <li {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'main:logout' %}">Logout</a></li>
                             {% else %}
-                                <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}><a
-                                       <li class="nav-item"><a class="nav-link" href="{% url 'main:login' %}" class="nav-link">Login</a></li>
+                                <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'main:login' %}">Login</a></li>
                                 <li {% if request.resolver_match.url_name == 'register' or request.resolver_match.url_name == 'register_done' %}class="active"{% endif %}>
-                                    <a
-                                       <li class="nav-item"><a class="nav-link" href="{% url 'main:register' %}" class="nav-link">Register</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'main:register' %}">Register</a></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -89,25 +90,27 @@
     <!--================Contact Area =================-->
     <section class="contact_area p_120">
         <div class="container">
-            <div id="mapBox" class="mapBox" data-lat="53.849457" data-lon="27.474191" data-zoom="13" data-info="проспект Дзержинского 122, Минск"
-                data-mlat="53.849457" data-mlon="27.474191">
+            <div style="width: 1000px; height: 400px; overflow: hidden;  pointer-events: none;">
+              <iframe width="1000" height="400" style="border:0;"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=27.433891296386722%2C53.832675494023555%2C27.514228820800785%2C53.866953256652565&amp;layer=mapnik&amp;marker=53.84981788414433%2C27.47406005859375"></iframe>
             </div>
+            <div style="margin-top: 30px;"></div>
             <div class="row">
                 <div class="col-lg-3">
                     <div class="contact_info">
                         <div class="info_item">
                             <i class="lnr lnr-home"></i>
-                            <h6>California, United States</h6>
-                            <p>Santa monica bullevard</p>
+                            <h6>Minsk City</h6>
+                            <p>Prospekt Dzerzhinsky, 122</p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-phone-handset"></i>
-                            <h6><a href="#">00 (440) 9865 562</a></h6>
-                            <p>Mon to Fri 9am to 6 pm</p>
+                            <h6><a href="#">+375 (025) 777 88 55</a></h6>
+                            <p>Mon to Fri 9am to 9 pm</p>
                         </div>
                         <div class="info_item">
                             <i class="lnr lnr-envelope"></i>
-                            <h6><a href="#">support@colorlib.com</a></h6>
+                            <h6><a href="#">juliacakes@gmail.com</a></h6>
                             <p>Send us your query anytime!</p>
                         </div>
                     </div>

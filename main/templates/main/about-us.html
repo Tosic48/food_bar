@@ -49,14 +49,13 @@
 
                             {% if user.username %}
                                 <li class="nav-item"><a class="nav-link">{{ user.username }}</a></li>
-                                <li {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}><a
-                                       <li class="nav-item"><a class="nav-link" href="{% url 'main:logout' %}" class="nav-link">Logout</a></li>
+                                <li {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'main:logout' %}">Logout</a></li>
                             {% else %}
-                                <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}><a
-                                       <li class="nav-item"><a class="nav-link" href="{% url 'main:login' %}" class="nav-link">Login</a></li>
+                                <li {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'main:login' %}">Login</a></li>
                                 <li {% if request.resolver_match.url_name == 'register' or request.resolver_match.url_name == 'register_done' %}class="active"{% endif %}>
-                                    <a
-                                       <li class="nav-item"><a class="nav-link" href="{% url 'main:register' %}" class="nav-link">Register</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'main:register' %}">Register</a></li>
                             {% endif %}
 						</ul>
 					</div>
