@@ -1,0 +1,15 @@
+version: "1"
+name: my-django-app
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    env:
+      DATABASE_URL: sqlite:///db.sqlite3
+    ports:
+      - 8080:8000
+    disk: 1024
+    env_file: .env
+    concurrency: 1
+    automatic_scaling:
+      target_concurrency: 1
