@@ -443,28 +443,30 @@
 			</div>
 
 			<div class="book_table_inner row align-items-center">
-				<div class="offset-lg-2 offset-md-1 col-lg-8 col-md-10">
-					<div class="table_form">
-						<form class="book_table_form row" action="#">
-							<div class="form-group col-md-12">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
-							</div>
-							<div class="form-group col-md-12">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
-							</div>
-							<div class="form-group col-md-12">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Phone Number">
-							</div>
-							<div class="form-group col-md-12">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Select date & time">
-							</div>
-							<div class="form-group col-md-12">
-								<button type="submit" value="submit" class="btn submit_btn form-control">Leave feedback</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
+                <div class="offset-lg-2 offset-md-1 col-lg-8 col-md-10">
+                    <div class="table_form">
+                        <form class="book_table_form row" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="text" name="text" placeholder="Enter your review text">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="details" name="details" placeholder="Enter additional details">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="customers" name="customers" placeholder="Enter customer name">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="file" class="form-control-file" id="photo" name="photo">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button type="submit" value="submit" class="btn submit_btn form-control">Leave review</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
 		</div>
 	</section>
 	<!--================End Book Table Area =================-->

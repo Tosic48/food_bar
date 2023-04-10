@@ -3,6 +3,8 @@ from django.contrib.auth import password_validation
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
+from main.models import Review
+
 
 class RegisterUserForm(forms.ModelForm):
     email = forms.EmailField(required=True, label='Адрес электронной почты')
@@ -40,3 +42,9 @@ class RegisterUserForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2',
                   'first_name', 'last_name')
+
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['text', 'details', 'customers', 'photo']

@@ -6,13 +6,25 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView
 from django.core.paginator import Paginator
 
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, ReviewForm
 from .models import Cakes, Review
+from django.shortcuts import render
 
+
+# def index(request):
+#     review = Review.objects.all()
+#     return render(request, 'main/index.html', {'review': review})
 
 def index(request):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ReviewForm()
+
     review = Review.objects.all()
-    return render(request, 'main/index.html', {'review': review})
+    return render(request, 'main/index.html', {'review': review, 'form': form})
 
 
 class AboutView(TemplateView):
@@ -59,10 +71,6 @@ class RegisterUserView(CreateView):
 class RegisterDoneView(TemplateView):
     template_name = 'main/register_done.html'
 
-
-# class CakeDetailView(DetailView):
-#     model = Cakes
-#     template_name = 'main/cake_detail.html'
 
 def cake_detail(request, pk):
     cake = Cakes.objects.get(pk=pk)
