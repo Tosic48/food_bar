@@ -1,7 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView
 from django.core.paginator import Paginator
@@ -10,10 +9,6 @@ from .forms import RegisterUserForm, ReviewForm
 from .models import Cakes, Review
 from django.shortcuts import render
 
-
-# def index(request):
-#     review = Review.objects.all()
-#     return render(request, 'main/index.html', {'review': review})
 
 def index(request):
     if request.method == 'POST':
