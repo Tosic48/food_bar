@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, CreateView, DetailView
+from django.views.generic import TemplateView, ListView, CreateView
 from django.core.paginator import Paginator
 
 from .forms import RegisterUserForm
@@ -27,7 +27,6 @@ class MenuListView(ListView):
     template_name = 'main/menu.html'
     context_object_name = 'menu'
 
-
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         page_number = self.request.GET.get('page')
@@ -36,7 +35,6 @@ class MenuListView(ListView):
         page_obj = paginator.get_page(page_number)
         context['page_obj'] = page_obj
         return super().get_context_data(**context)
-
 
     def get_queryset(self):
         return Cakes.objects.all()
@@ -73,4 +71,3 @@ def cake_detail(request, pk):
 
     }
     return render(request, 'main/cake_detail.html', context)
-

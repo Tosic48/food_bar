@@ -15,11 +15,9 @@ class PersonAdmin(admin.ModelAdmin):
     search_fields = ('composition',)
     actions = ['make_vegeterian']
 
-
     @admin.action(description='Сделать вегетерианскими')
     def make_vegeterian(modeladmin, request, queryset):
         queryset.update(vegetarion_type='vegeterian')
-
 
     def preview_photo(self, obj):
         return mark_safe(f'<img src="{obj.photo.url}" width="150" />')
@@ -34,4 +32,3 @@ class PersonAdmin(admin.ModelAdmin):
 
     def preview_photo(self, obj):
         return mark_safe(f'<img src="{obj.photo.url}" width="150" />')
-
