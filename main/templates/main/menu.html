@@ -111,11 +111,10 @@
                 {% for cake in page_obj %}
 				<div class="single_dish col-lg-4 col-md-6 text-center">
 					<div class="thumb">
-						<img class="img-fluid" src="{{cake.photo.url}}" alt="">
+						<a href="{% url 'main:cake_detail' cake.pk %}"><img class="img-fluid" src="{{cake.photo.url}}" alt=""></a>
 					</div>
-					<h4>{{ cake.title }}</h4>
+					<a href="{% url 'main:cake_detail' cake.pk %}"><h4>{{ cake.title }}</h4></a>
 					<p>{{ cake.vegetarion_type}}</p>
-					<p>{{ cake.composition}}</p>
                     <h5 class="price">${{ cake.price }}</h5>
 				</div>
                 {% endfor %}

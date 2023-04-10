@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from django.core.paginator import Paginator
 
 from .forms import RegisterUserForm
@@ -60,4 +60,17 @@ class RegisterUserView(CreateView):
 
 class RegisterDoneView(TemplateView):
     template_name = 'main/register_done.html'
+
+
+# class CakeDetailView(DetailView):
+#     model = Cakes
+#     template_name = 'main/cake_detail.html'
+
+def cake_detail(request, pk):
+    cake = Cakes.objects.get(pk=pk)
+    context = {
+        'cake': cake,
+
+    }
+    return render(request, 'main/cake_detail.html', context)
 

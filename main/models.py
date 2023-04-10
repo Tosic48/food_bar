@@ -18,6 +18,9 @@ class Cakes(models.Model):
     price = models.PositiveIntegerField()
     photo = models.ImageField(upload_to='')
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = "Торт"
         verbose_name_plural = "Торты"
