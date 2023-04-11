@@ -2,10 +2,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, CreateView
+from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from django.core.paginator import Paginator
 
-from .forms import RegisterUserForm, ReviewForm
+from .forms import RegisterUserForm, ReviewForm, send_email
 from .models import Cakes, Review
 from django.shortcuts import render
 
@@ -15,6 +15,7 @@ def index(request):
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            return render(request, 'main/review_created.html')
     else:
         form = ReviewForm()
 
@@ -45,6 +46,17 @@ class MenuListView(ListView):
     def get_queryset(self):
         return Cakes.objects.all()
 
+    def post(self, request):
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('subject')
+        date_time = request.POST.get('subject')
+        choice = request.POST.get('text')
+
+        send_email(name, email, phone, date_time, choice)
+
+        return render(request, 'main/order_done.html')
+
 
 class FBLoginView(LoginView):
     template_name = 'main/login.html'
@@ -66,10 +78,26 @@ class RegisterDoneView(TemplateView):
     template_name = 'main/register_done.html'
 
 
-def cake_detail(request, pk):
-    cake = Cakes.objects.get(pk=pk)
-    context = {
-        'cake': cake,
+class ReviewCreatedView(TemplateView):
+    template_name = 'main/review_created.html'
 
-    }
-    return render(request, 'main/cake_detail.html', context)
+
+class OrderDoneView(TemplateView):
+    template_name = 'main/order_done.html'
+
+
+class CakeDetailView(DetailView):
+    model = Cakes
+    template_name = 'main/cake_detail.html'
+    context_object_name = 'cake'
+
+    def post(self, *args, **kwargs):
+        name = self.request.POST.get('name')
+        email = self.request.POST.get('email')
+        phone = self.request.POST.get('subject')
+        date_time = self.request.POST.get('subject')
+        choice = self.request.POST.get('text')
+
+        send_email(name, email, phone, date_time, choice)
+
+        return render(self.request, 'main/order_done.html')

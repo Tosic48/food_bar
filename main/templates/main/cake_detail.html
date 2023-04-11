@@ -81,7 +81,54 @@
         </div>
     </div>
 
+ 	<!--================Book Table Area =================-->
+<section class="reservation gray">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title position-relative">
+						<h1>Make Order</h1>
+						<hr>
+						<div class="round-planet planet gray-border">
+							<div class="round-planet planet2 gray-border">
+								<div class="shape shape1"></div>
+								<div class="shape shape2"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<div class="book_table_inner row align-items-center">
+				<div class="offset-lg-2 offset-md-1 col-lg-8 col-md-10">
+					<div class="table_form white">
+                        <form class="book_table_form row" method="POST">
+							{% csrf_token %}
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="subject" name="phone" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="datetime" name="datetime" placeholder="Select date & time">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="text" name="choice" placeholder="Enter your Choice">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button type="submit" value="submit" class="btn submit_btn form-control">Make Order</button>
+                            </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Book Table Area =================-->
 
 
     <!--================Contact Area =================-->

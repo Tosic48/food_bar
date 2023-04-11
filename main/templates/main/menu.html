@@ -138,7 +138,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title position-relative">
-						<h1>Make Reservation</h1>
+						<h1>Make Order</h1>
 						<hr>
 						<div class="round-planet planet gray-border">
 							<div class="round-planet planet2 gray-border">
@@ -153,25 +153,26 @@
 			<div class="book_table_inner row align-items-center">
 				<div class="offset-lg-2 offset-md-1 col-lg-8 col-md-10">
 					<div class="table_form white">
-						<form class="book_table_form row" action="#">
-							<div class="form-group col-md-12">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
-							</div>
-							<div class="form-group col-md-12">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
-							</div>
-							<div class="form-group col-md-12">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Phone Number">
-							</div>
-							<div class="form-group col-md-12">
-								<input type="text" class="form-control" id="subject" name="subject" placeholder="Select date & time">
-							</div>
+                        <form class="book_table_form row" method="POST">
+							{% csrf_token %}
                             <div class="form-group col-md-12">
-                                <input type="text" class="form-control" id="text" name="text" placeholder="Enter your Choice">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                             </div>
-							<div class="form-group col-md-12">
-								<button type="submit" value="submit" class="btn submit_btn form-control">Make Order</button>
-							</div>
+                            <div class="form-group col-md-12">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="subject" name="phone" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="datetime" name="datetime" placeholder="Select date & time">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" class="form-control" id="text" name="choice" placeholder="Enter your Choice">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <button type="submit" value="submit" class="btn submit_btn form-control">Make Order</button>
+                            </div>
 						</form>
 					</div>
 				</div>
