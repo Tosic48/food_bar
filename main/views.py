@@ -10,6 +10,7 @@ from .models import Cakes, Review
 from django.shortcuts import render
 
 
+# page menu with create review
 def index(request):
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
@@ -41,6 +42,7 @@ class ContactView(TemplateView):
         return render(request, 'main/message_sent.html')
 
 
+# page menu with paginator and send email with detail order
 class MenuListView(ListView):
     template_name = 'main/menu.html'
     context_object_name = 'menu'

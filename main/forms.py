@@ -11,6 +11,7 @@ from config import PASSWORD
 from main.models import Review
 
 
+# create registration form
 class RegisterUserForm(forms.ModelForm):
     email = forms.EmailField(required=True, label='Адрес электронной почты')
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput,
@@ -49,12 +50,14 @@ class RegisterUserForm(forms.ModelForm):
                   'first_name', 'last_name')
 
 
+# form for sending data to DB
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['text', 'details', 'customers', 'photo']
 
 
+# form for sending email from page menu and cake_detail
 def send_email(name, email, phone, date_time, choice):
     sender_email = "nikmarooo@mail.ru"  # Адрес электронной почты отправителя
     sender_password = PASSWORD  # Пароль электронной почты отправителя
@@ -73,6 +76,7 @@ def send_email(name, email, phone, date_time, choice):
         server.sendmail(sender_email, recipient_email, message.as_string())
 
 
+# form for sending email from page contact
 def send_email2(name, email, phone, text):
     sender_email = "nikmarooo@mail.ru"  # Адрес электронной почты отправителя
     sender_password = PASSWORD  # Пароль электронной почты отправителя
