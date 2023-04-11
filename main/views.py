@@ -37,8 +37,7 @@ class MenuListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         page_number = self.request.GET.get('page')
-        objects_per_page = 3
-        paginator = Paginator(context['object_list'], objects_per_page)
+        paginator = Paginator(context['object_list'], 3)
         page_obj = paginator.get_page(page_number)
         context['page_obj'] = page_obj
         return super().get_context_data(**context)
