@@ -117,7 +117,8 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                    <form class="row contact_form" method="POST">
+                        {% csrf_token %}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
@@ -126,12 +127,12 @@
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject">
+                                <input type="text" class="form-control" id="subject" name="phone" placeholder="Phone Number">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <textarea class="form-control" name="message" id="message" rows="1" placeholder="Enter Message"></textarea>
+                                <textarea class="form-control" name="message" id="message" placeholder="Enter Message"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12 text-right">
@@ -214,14 +215,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="../../static/main/vendors/popup/jquery.magnific-popup.min.js"></script>
     <script src="../../static/main/vendors/swiper/js/swiper.min.js"></script>
     <script src="../../static/main/vendors/scroll/jquery.mCustomScrollbar.js"></script>
-    <!-- contact js -->
-    <script src="../../static/main/js/jquery.form.js"></script>
-    <script src="../../static/main/js/jquery.validate.min.js"></script>
-    <script src="../../static/main/js/contact.js"></script>
-    <!--gmaps Js-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="../../static/main/js/gmaps.min.js"></script>
-    <script src="../../static/main/js/theme.js"></script>
 </body>
 
 </html>

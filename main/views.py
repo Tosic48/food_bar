@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from django.core.paginator import Paginator
 
-from .forms import RegisterUserForm, ReviewForm, send_email
+from .forms import RegisterUserForm, ReviewForm, send_email, send_email2
 from .models import Cakes, Review
 from django.shortcuts import render
 
@@ -29,6 +29,16 @@ class AboutView(TemplateView):
 
 class ContactView(TemplateView):
     template_name = 'main/contact.html'
+
+    def post(self, request):
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('subject')
+        text = request.POST.get('text')
+
+        send_email2(name, email, phone, text)
+
+        return render(request, 'main/message_sent.html')
 
 
 class MenuListView(ListView):
@@ -84,6 +94,10 @@ class ReviewCreatedView(TemplateView):
 
 class OrderDoneView(TemplateView):
     template_name = 'main/order_done.html'
+
+
+class MessageSentView(TemplateView):
+    template_name = 'main/message_sent.html'
 
 
 class CakeDetailView(DetailView):

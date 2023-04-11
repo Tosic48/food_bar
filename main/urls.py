@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import index, AboutView, ContactView, MenuListView, FBLoginView, FBLogoutView, \
-    RegisterUserView, RegisterDoneView, OrderDoneView, ReviewCreatedView, CakeDetailView
+    RegisterUserView, RegisterDoneView, OrderDoneView, ReviewCreatedView, CakeDetailView, MessageSentView
 
 app_name = 'main'
 
@@ -17,5 +17,6 @@ urlpatterns = [
     path('accounts/register/', RegisterUserView.as_view(), name='register'),
     path('accounts/register/done/', RegisterDoneView.as_view(), name='register_done'),
     path('order_done/', OrderDoneView.as_view(), name='order_done'),
+    path('message_sent/', MessageSentView.as_view(), name='message_sent'),
 
 ]

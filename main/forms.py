@@ -56,9 +56,9 @@ class ReviewForm(forms.ModelForm):
 
 
 def send_email(name, email, phone, date_time, choice):
-    sender_email = "nikmarooo@mail.ru" # Адрес электронной почты отправителя
-    sender_password = PASSWORD # Пароль электронной почты отправителя
-    recipient_email = "nikmarooo@mail.ru" # Адрес электронной почты получателя
+    sender_email = "nikmarooo@mail.ru"  # Адрес электронной почты отправителя
+    sender_password = PASSWORD  # Пароль электронной почты отправителя
+    recipient_email = "nikmarooo@mail.ru"  # Адрес электронной почты получателя
 
     message = MIMEMultipart()
     message["From"] = sender_email
@@ -66,6 +66,24 @@ def send_email(name, email, phone, date_time, choice):
     message["Subject"] = "New order"
 
     body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nDate and time: {date_time}\nChoice: {choice}"
+    message.attach(MIMEText(body, "plain"))
+
+    with smtplib.SMTP_SSL("smtp.mail.ru", 465) as server:
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, recipient_email, message.as_string())
+
+
+def send_email2(name, email, phone, text):
+    sender_email = "nikmarooo@mail.ru"  # Адрес электронной почты отправителя
+    sender_password = PASSWORD  # Пароль электронной почты отправителя
+    recipient_email = "nikmarooo@mail.ru"  # Адрес электронной почты получателя
+
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = recipient_email
+    message["Subject"] = "Contact me"
+
+    body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nText: {text}"
     message.attach(MIMEText(body, "plain"))
 
     with smtplib.SMTP_SSL("smtp.mail.ru", 465) as server:
