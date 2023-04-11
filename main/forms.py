@@ -77,17 +77,17 @@ def send_email(name, email, phone, date_time, choice):
 
 
 # form for sending email from page contact
-def send_email2(name, email, phone, text):
-    sender_email = "nikmarooo@mail.ru"  # Адрес электронной почты отправителя
-    sender_password = PASSWORD  # Пароль электронной почты отправителя
-    recipient_email = "nikmarooo@mail.ru"  # Адрес электронной почты получателя
+def send_email2(name: str, email: str, phone: str, text: str) -> None:
+    sender_email: str = "nikmarooo@mail.ru"
+    sender_password: str = PASSWORD
+    recipient_email: str = "nikmarooo@mail.ru"
 
-    message = MIMEMultipart()
+    message: MIMEMultipart = MIMEMultipart()
     message["From"] = sender_email
     message["To"] = recipient_email
     message["Subject"] = "Contact me"
 
-    body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nText: {text}"
+    body: str = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nText: {text}"
     message.attach(MIMEText(body, "plain"))
 
     with smtplib.SMTP_SSL("smtp.mail.ru", 465) as server:

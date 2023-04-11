@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 
+# model db of cakes
 class Cakes(models.Model):
     VEGETERIAN_CHOISE = [
         ('vegeterian', 'For Vegeterian'),
@@ -26,12 +27,13 @@ class Cakes(models.Model):
         verbose_name_plural = "Торты"
 
 
+# model db reviews
 class Review(models.Model):
-    text = models.CharField(max_length=100)
-    details = models.CharField(max_length=100)
-    customers = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='')
+    text: str = models.CharField(max_length=100)
+    details: str = models.CharField(max_length=100)
+    customers: str = models.CharField(max_length=100)
+    photo: models.ImageField = models.ImageField(upload_to='')
 
     class Meta:
-        verbose_name = "Отзыв"
-        verbose_name_plural = "Отзывы"
+        verbose_name: str = "Отзыв"
+        verbose_name_plural: str = "Отзывы"
